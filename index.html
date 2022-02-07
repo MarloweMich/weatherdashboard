@@ -10,15 +10,37 @@
 <body>
     <div id="test"></div>
     <div>
-        <ul>
+        <ul class="searchbar">
         <li><input type="text" id="search"></li>
-        <button type="submit" id="searchbtn">Search</button>
+        <li><button type="submit" id="searchbtn">Search</button></li>
+        </ul>
+            <ul class="previous">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+    </div>
+    <div class="1">
+        <h2 id="cityname"></h2>
+        <ul id="info1">
+            <li id="temp1"></li>
+            <li id="wind1"></li>
+            <li id="hum1"></li>
+            <li id="uvi1"></li>
         </ul>
     </div>
-    <div>
-        <div id="cityname"></div>
-        <div id="info"></div>
-    </div>
+    <ul id="5day">
+        <li id="2"></li>
+        <li id="3"></li>
+        <li id="4"></li>
+        <li id="5"></li>
+        <li id="6"></li>
+    </ul>
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 <script src="./script.js"></script>
 </html>
