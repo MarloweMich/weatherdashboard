@@ -9,7 +9,10 @@
     <title>Weather Dashboard</title>
 </head>
 <body>
-    <div id="test"></div>
+    <header>
+        <h1>Rather Dashing Weather Dashboard</h1>
+    </header>
+    
     <div>
         <ul class="searchbar">
         <li><input type="text" id="search"></li>
@@ -25,6 +28,7 @@
                 <li></li>
             </ul>
     </div>
+    <main>
     <div class="day1">
         <h2 id="cityname"></h2>
         <ul id="info1">
@@ -34,7 +38,7 @@
             <li id="uvi1"></li>
         </ul>
     </div>
-    <div id="5day">
+    <div class="forecast">
         <ul id="0">
             <li id="temp"></li>
             <li id="wind"></li>
@@ -61,6 +65,7 @@
             <li id="hum"></li>
         </ul>
     </div>
+    </main>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

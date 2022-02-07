@@ -43,8 +43,12 @@ function getAPI() {
   fetch(weather)
     .then(function (response) {
       if (response.status === 404) {
-        alert("City Not Found");
-      } else {
+        alert("No city in the world is even called that.");
+      }
+      if (input.value === ""){
+        alert("Please specify a city. Like, literally anywhere in the world.")
+      }
+       else {
         return response.json();
       }
     })
@@ -65,28 +69,28 @@ function getAPI() {
           day1temp.textContent = "Temp: " + data.current.temp + "\xB0F";
           day1hum.textContent = "Humidity: " + data.current.humidity + "%";
           day1uvi.textContent = "UV Index: " + data.current.uvi;
-          day1wind.textContent = "Wind speed: " + data.current.wind_speed + "MPH";
+          day1wind.textContent = "Wind: " + data.current.wind_speed + "MPH";
 
 
-          fiveday[0].children[0].textContent = data.daily[0].temp.day + "\xB0F";
-          fiveday[0].children[1].textContent = data.daily[0].wind_speed + "MPH";
-          fiveday[0].children[2].textContent = data.daily[0].humidity + "%";
+          fiveday[0].children[0].textContent = "Temp: " + data.daily[0].temp.day + "\xB0F";
+          fiveday[0].children[1].textContent = "Wind: " + data.daily[0].wind_speed + "MPH";
+          fiveday[0].children[2].textContent = "Humidity: " + data.daily[0].humidity + "%";
 
-          fiveday[1].children[0].textContent = data.daily[1].temp.day + "\xB0F";
-          fiveday[1].children[1].textContent = data.daily[1].wind_speed + "MPH";
-          fiveday[1].children[2].textContent = data.daily[1].humidity + "%";
+          fiveday[1].children[0].textContent = "Temp: " + data.daily[1].temp.day + "\xB0F";
+          fiveday[1].children[1].textContent = "Wind: " + data.daily[1].wind_speed + "MPH";
+          fiveday[1].children[2].textContent = "Humidity: " + data.daily[1].humidity + "%";
 
-          fiveday[2].children[0].textContent = data.daily[2].temp.day + "\xB0F";
-          fiveday[2].children[1].textContent = data.daily[2].wind_speed + "MPH";
-          fiveday[2].children[2].textContent = data.daily[2].humidity + "%";
+          fiveday[2].children[0].textContent = "Temp: " + data.daily[2].temp.day + "\xB0F";
+          fiveday[2].children[1].textContent = "Wind: " + data.daily[2].wind_speed + "MPH";
+          fiveday[2].children[2].textContent = "Humidity: " + data.daily[2].humidity + "%";
           
-          fiveday[3].children[0].textContent = data.daily[3].temp.day + "\xB0F";
-          fiveday[3].children[1].textContent = data.daily[3].wind_speed + "MPH";
-          fiveday[3].children[2].textContent = data.daily[3].humidity + "%";
+          fiveday[3].children[0].textContent = "Temp: " + data.daily[3].temp.day + "\xB0F";
+          fiveday[3].children[1].textContent = "Wind: " + data.daily[3].wind_speed + "MPH";
+          fiveday[3].children[2].textContent = "Humidity: " + data.daily[3].humidity + "%";
 
-          fiveday[4].children[0].textContent = data.daily[4].temp.day + "\xB0F";
-          fiveday[4].children[1].textContent = data.daily[4].wind_speed + "MPH";
-          fiveday[4].children[2].textContent = data.daily[4].humidity + "%";
+          fiveday[4].children[0].textContent = "Temp: " + data.daily[4].temp.day + "\xB0F";
+          fiveday[4].children[1].textContent = "Wind: " + data.daily[4].wind_speed + "MPH";
+          fiveday[4].children[2].textContent = "Humidity: " + data.daily[4].humidity + "%";
             //  for (i=0; i<fiveday.length; i++) {
             //      fiveday.forEach(element =>
             //     element.children[0].textContent = data.daily[0].temp.day);

@@ -1,3 +1,87 @@
 ul {
     list-style-type: none;
 }
+
+header{
+    height: 75px;
+    width: 100%;
+    background-color: darkblue;
+    color: azure;
+    text-align: center;
+    justify-content: center;
+}
+
+#search{
+    margin-top: 12px;
+    margin: 5px;
+    width: 18%;
+
+}
+
+#searchbtn{
+    width: 18%;
+    background-color: dodgerblue;
+    color: azure;
+    border-radius: 15px;
+    padding: 5px;
+    margin: 10px;
+}
+
+#searchbtn:hover{
+        border-radius: 15px;
+        transition: all 0.5s;
+        box-shadow: inset 8px 8px 8px
+     dodgerblue, 0 0 3px
+     rgb(7, 123, 238);                
+}
+
+.previous{
+    border-top: 3px solid black;
+    margin: 20px;
+    width: 20%;
+}
+
+.previous li {
+    background-color: gainsboro;
+    width: 80%;
+    height: 30px;
+    display: block;
+    padding: 10px;
+    margin: 10px;
+    color: black;
+}
+
+.day1{
+    position: absolute;
+    right: 50px;
+    top: 100px;
+    width: 60%;
+    height: 40%;
+    border: black 2px solid;
+}
+
+.day1 li{
+    line-height: 3;
+    margin: 10px;
+}
+
+.forecast{
+    position: absolute;
+    right: 50px;
+    bottom: 90px;
+}
+
+.forecast ul{
+    display: inline-block;
+    width: 200px;
+    height: 250px;
+    background-color:blue;
+    color: azure;
+    margin: 30px;
+    text-align: left;
+}
+
+.forecast ul li{
+    line-height: 2;
+    padding: 10px;
+}
