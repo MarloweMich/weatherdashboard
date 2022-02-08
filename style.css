@@ -5,7 +5,7 @@ ul {
 header{
     height: 75px;
     width: 100%;
-    background-color: darkblue;
+    background-color: dodgerblue;
     color: azure;
     text-align: center;
     justify-content: center;
@@ -59,6 +59,20 @@ header{
     height: 40%;
     border: black 2px solid;
     font-weight: bold;
+    background-color: skyblue;
+    border-radius: 10px;
+}
+
+.day1 h2{
+    position: absolute;
+    top: 15px;
+    left: 45px;
+}
+
+.day1 ul{
+    padding: 50px;
+    top: 45px;
+    left: 45px;
 }
 
 .day1 li{
@@ -66,14 +80,21 @@ header{
     margin: 10px;
 }
 
+#uvi1{
+    width: fit-content;
+    padding: 4px;
+    border-radius: 15px;
+}
+
 .day1 #icon1{
     position: absolute;
     right: 35%;
-    top: 30%;
+    top: 5%;
 }
-
+/* MOVE IMAGE UPWARD IN CONTAINER */
 .day1 #icon1 img{
-    max-width: 100%;
+    width: 300%;
+    height: auto;
 }
 
 .forecast{
@@ -90,10 +111,13 @@ header{
     color: black;
     margin: 30px;
     text-align: left;
+    border: 1px black solid;
+    border-radius: 10px;
 }
 
 .forecast ul li{
     line-height: 2;
     padding: 10px;
+    
 }
 
