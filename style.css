@@ -58,11 +58,22 @@ header{
     width: 60%;
     height: 40%;
     border: black 2px solid;
+    font-weight: bold;
 }
 
 .day1 li{
     line-height: 3;
     margin: 10px;
+}
+
+.day1 #icon1{
+    position: absolute;
+    right: 35%;
+    top: 30%;
+}
+
+.day1 #icon1 img{
+    max-width: 100%;
 }
 
 .forecast{
@@ -75,8 +86,8 @@ header{
     display: inline-block;
     width: 200px;
     height: 250px;
-    background-color:blue;
-    color: azure;
+    background-color:skyblue;
+    color: black;
     margin: 30px;
     text-align: left;
 }
@@ -85,3 +96,4 @@ header{
     line-height: 2;
     padding: 10px;
 }
+
