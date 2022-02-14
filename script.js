@@ -16,9 +16,14 @@
 
 // display information for five days after the current day in section three for the current city
 
+//GLOBAL VARIABLES
+
 var APIKey = "4afcf2545fe74a0ac9054bd3660678f4";
 var input = document.getElementById("search");
 var btn = document.getElementById("searchform");
+
+//CURRENT CITY/CURRENT DAY WEATHER
+
 var city = document.getElementById("cityname");
 var day1info = document.getElementById("info1");
 var day1temp = document.getElementById("temp1");
@@ -26,18 +31,33 @@ var day1wind = document.getElementById("wind1");
 var day1hum = document.getElementById("hum1");
 var day1uvi = document.getElementById("uvi1");
 var day1icon = document.getElementById("icon1");
+
+//FIVEDAY FORECAST VARIABLES
+
 var iconUrl = document.createElement("img");
 var fiveday = [
-  document.getElementById("0"),
-  document.getElementById("1"),
-  document.getElementById("2"),
-  document.getElementById("3"),
-  document.getElementById("4"),
+  document.getElementById("day2"),
+  document.getElementById("day3"),
+  document.getElementById("day4"),
+  document.getElementById("day5"),
+  document.getElementById("day6"),
 ];
 var temp = document.getElementById("temp");
 var wind = document.getElementById("wind");
 var hum = document.getElementById("hum");
 
+//SAVELOCAL VARIABLES
+
+var previnputs = [];
+var prevsearchbar = [
+  document.getElementById("p0"),
+  document.getElementById("p1"),
+  document.getElementById("p2"),
+  document.getElementById("p3"),
+  document.getElementById("p4"),
+  document.getElementById("p5"),
+  document.getElementById("p6"),
+];
 btn.addEventListener("submit", getAPI);
 
 //FETCHING OPENWEATHER API'S
@@ -87,22 +107,29 @@ function getAPI(event) {
           day1uvi.textContent = "UV Index: " + data.current.uvi;
           day1wind.textContent = "Wind: " + data.current.wind_speed + "MPH";
           day1icon.appendChild(iconUrl);
-          //need to change color behind text of UVI try span over number of UVI as a seaprate element
-          var color = "";
-          if (data.current.uvi < 3) color = "green";
-            // day1info.children[3].setAttribute("style", "background-color: green");
-          else if (3 < data.current.uvi <= 5) color = "yellow";
-          // day1info.children[3].setAttribute("style", "background-color: yellow");
-          else if (5 < data.current.uvi <= 8) color = "orange";
-          // day1info.children[3].setAttribute("style", "background-color: orange");
-          else if (8 < data.current.uvi <= 11) color = "red";
-          // day1info.children[3].setAttribute("style", "background-color: red");
-          else if (11 < data.current.uvi) color = "purple";
-            //day1info.children[3].setAttribute("style", "background-color: purple");
-          day1info.children[3].setAttribute(
-            "style",
-            `background-color: ${color}`
-          );
+          if (data.current.uvi < 3)
+            day1info.children[3].setAttribute(
+              "style",
+              "background-color: green"
+            );
+          else if (3 < data.current.uvi <= 5)
+            day1info.children[3].setAttribute(
+              "style",
+              "background-color: yellow"
+            );
+          else if (5 < data.current.uvi <= 8)
+            day1info.children[3].setAttribute(
+              "style",
+              "background-color: orange"
+            );
+          else if (8 < data.current.uvi <= 11)
+            day1info.children[3].setAttribute("style", "background-color: red");
+          else if (11 < data.current.uvi)
+            day1info.children[3].setAttribute(
+              "style",
+              "background-color: purple"
+            );
+
           //PLACING PERTINENT INFO IN 5 DAY FORECAST
 
           for (var i = 0; i < fiveday.length; i++) {
@@ -123,50 +150,25 @@ function getAPI(event) {
     });
 }
 
-// saveLocal(){
-
-// }
-
-// btn.addEventListener("click", function(event){
-//   event.preventDefault();
-//   saveLocal();
-// });
-
-// function init(){
-//   renderLastRegistered();
-// }
-// init();
-
-// function renderLastRegistered() {
-//   var items = JSON.parse(localStorage.getItem("input"));
-//   for (i = 0; i<changers.length; i++){
-//     changers[i].val(items[i])
-//   }
-//   console.log(items);
-// };
-
-// function savelocal(){
-//  var input = [
-//    $('textarea[id="9"]').val(),
-//    $('textarea[id="10"]').val(),
-//    $('textarea[id="11"]').val(),
-//    $('textarea[id="12"]').val(),
-//    $('textarea[id="13"]').val(),
-//    $('textarea[id="14"]').val(),
-//    $('textarea[id="15"]').val(),
-//    $('textarea[id="16"]').val(),
-//    $('textarea[id="17"]').val(),
-//  ];
-// localStorage.setItem("input", JSON.stringify(input));
-// }
-
-// var button = $(".saveBtn");
-// button.on("click", function (event) {
-//  event.preventDefault();
-//  savelocal();
-// });
-
-// function init(){
-//  renderLastRegistered();
-// }
-// init();
+//LOCAL STORAGE STUFF
+function saveLocal() {
+  previnputs.push(input.value);
+  console.log("previnputs: " + previnputs);
+  localStorage.setItem("input", JSON.stringify(previnputs));
+}
+btn.addEventListener("submit", function (event) {
+  event.preventDefault();
+  saveLocal();
+});
+function readLocal() {
+  //parse saveLocal array and use getItem to create content prevsearchbar
+  var prevsearchbarvalues = JSON.parse(localStorage.getItem("input"));
+  for (var i = 0; i < prevsearchbar.length; i++) {
+    prevsearchbar[i].textContent = prevsearchbarvalues[i];
+    prevsearchbar[i].addEventListener("click", getAPI);
+  }
+}
+function init() {
+  readLocal();
+}
+init();
