@@ -138,14 +138,16 @@ function getAPI(event) {
               "http://openweathermap.org/img/wn/" +
               data.daily[i].weather[0].icon +
               "@2x.png";
-            fiveday[i].children[3].replaceWith(icon5);
-            fiveday[i].children[0].textContent =
-              "Temp: " + data.daily[i].temp.day + "\xB0F";
+            fiveday[i].children[4].replaceWith(icon5);
+            fiveday[i].children[0].textContent = moment().add(i+1, "days").format("MM/DD/YYYY")
             fiveday[i].children[1].textContent =
-              "Wind: " + data.daily[i].wind_speed + "MPH";
+              "Temp: " + data.daily[i].temp.day + "\xB0F";
             fiveday[i].children[2].textContent =
+              "Wind: " + data.daily[i].wind_speed + "MPH";
+            fiveday[i].children[3].textContent =
               "Humidity: " + data.daily[i].humidity + "%";
           }
+          // fiveday[i].children[0].textContent = moment().add(i, "days").format("MM/DD/YYYY")
         });
     });
 }
@@ -166,6 +168,7 @@ function readLocal() {
   for (var i = 0; i < prevsearchbar.length; i++) {
     prevsearchbar[i].textContent = prevsearchbarvalues[i];
     prevsearchbar[i].addEventListener("click", getAPI);
+    //how do i replace input.value with prevsearchbar[i].textContent?
   }
 }
 function init() {

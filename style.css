@@ -103,11 +103,6 @@ header{
     position: absolute;
     right: 50px;
     bottom: 90px;
-    /* display: flex;
-    flex-flow: row wrap;
-    align-items: center;
-    justify-content: center; */
-    
 }
 
 .forecast ul{
@@ -123,7 +118,7 @@ header{
 }
 
 .forecast ul li{
-    line-height: 2;
+    line-height: 1;
     padding: 10px;
     
 }
