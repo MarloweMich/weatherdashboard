@@ -123,12 +123,10 @@ header{
     
 }
 
-/* @media screen and (max-width: 768px) {
+@media screen and (max-width: 768px) {
     body {
-        display: block;
-    }
-    .forecast ul li {
-        display: block;
-    }
+        display: flex;
+        flex: row wrap;
 
-} */
+}
+}

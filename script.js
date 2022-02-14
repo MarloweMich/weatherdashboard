@@ -42,9 +42,6 @@ var fiveday = [
   document.getElementById("day5"),
   document.getElementById("day6"),
 ];
-var temp = document.getElementById("temp");
-var wind = document.getElementById("wind");
-var hum = document.getElementById("hum");
 
 //SAVELOCAL VARIABLES
 
@@ -64,6 +61,9 @@ btn.addEventListener("submit", getAPI);
 
 function getAPI(event) {
   event.preventDefault();
+  for (var i=0; i<prevsearchbar.length; i++){
+    prevsearchbar[i].textContent = previnputs[i];
+  }
   var weather =
     "https://api.openweathermap.org/data/2.5/weather?q=" +
     input.value +
@@ -86,6 +86,7 @@ function getAPI(event) {
       iconUrl.src =
         "http://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png";
       var lat = data.coord.lat;
+      //window.latglob = lat;
       var lon = data.coord.lon;
       var onecall =
         "https://api.openweathermap.org/data/2.5/onecall?lat=" +
@@ -139,7 +140,9 @@ function getAPI(event) {
               data.daily[i].weather[0].icon +
               "@2x.png";
             fiveday[i].children[4].replaceWith(icon5);
-            fiveday[i].children[0].textContent = moment().add(i+1, "days").format("MM/DD/YYYY")
+            fiveday[i].children[0].textContent = moment()
+              .add(i + 1, "days")
+              .format("MM/DD/YYYY");
             fiveday[i].children[1].textContent =
               "Temp: " + data.daily[i].temp.day + "\xB0F";
             fiveday[i].children[2].textContent =
@@ -147,7 +150,6 @@ function getAPI(event) {
             fiveday[i].children[3].textContent =
               "Humidity: " + data.daily[i].humidity + "%";
           }
-          // fiveday[i].children[0].textContent = moment().add(i, "days").format("MM/DD/YYYY")
         });
     });
 }
@@ -163,15 +165,19 @@ btn.addEventListener("submit", function (event) {
   saveLocal();
 });
 function readLocal() {
-  //parse saveLocal array and use getItem to create content prevsearchbar
   var prevsearchbarvalues = JSON.parse(localStorage.getItem("input"));
   for (var i = 0; i < prevsearchbar.length; i++) {
     prevsearchbar[i].textContent = prevsearchbarvalues[i];
     prevsearchbar[i].addEventListener("click", getAPI);
     //how do i replace input.value with prevsearchbar[i].textContent?
+    //window.variable??
   }
 }
 function init() {
   readLocal();
 }
 init();
+
+
+//the previnputs array gets replaced on reloading the page and typing in a value.
+//it was push new values in properly without refreshing page
