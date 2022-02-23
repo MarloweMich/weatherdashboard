@@ -15,10 +15,12 @@ header{
     margin-top: 12px;
     margin: 5px;
     width: 18%;
+    min-width: 200px;
 }
 
 #searchbtn{
     width: 18%;
+    min-width: 200px;
     background-color: dodgerblue;
     color: azure;
     border-radius: 15px;
@@ -144,6 +146,7 @@ header{
 
     .day1{
         left: 10%;
+        min-height: fit-content;
     }
 
     .day1 ul{
@@ -172,6 +175,10 @@ header{
 }
 
 @media screen and (max-width: 450px){
+.day1{
+    min-height: fit-content;
+}
+
     .day1 #icon1{
         position: absolute;
         top: 80%;
@@ -183,4 +190,16 @@ header{
         width: 100%;
         height: auto;
     }
+}
+
+@media screen and (max-width: 389px){
+    .day1{
+        min-height: fit-content;
+    }
+
+    .day1 #icon1{
+        position: absolute;
+        top: 30%;
+        right: 5%;
+    }    
 }
