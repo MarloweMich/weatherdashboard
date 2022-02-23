@@ -35,7 +35,7 @@ var prevsearchbar = [
   document.getElementById("p5"),
   document.getElementById("p6"),
 ];
-var cityhistory = JSON.parse(localStorage.getItem("input"))||[];
+var cityhistory = JSON.parse(localStorage.getItem("cities"))||[];
 
 //BEGINS PROCESS
 btn.addEventListener("submit", getAPI);
@@ -145,7 +145,7 @@ function getAPI(event) {
 function saveLocal() {
   if(cityhistory.indexOf(input.value) === -1){
     cityhistory.push(input.value);
-    localStorage.setItem("input", JSON.stringify(cityhistory));
+    localStorage.setItem("cities", JSON.stringify(cityhistory));
   }
 }
 btn.addEventListener("submit", function (event) {
